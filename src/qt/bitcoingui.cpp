@@ -239,9 +239,6 @@ void BitcoinGUI::createActions()
     aboutAction = new QAction(QIcon(":/icons/bitcoin"), tr("&About Unify"), this);
     aboutAction->setStatusTip(tr("Show information about Unify"));
     aboutAction->setMenuRole(QAction::AboutRole);
-    aboutAction = new QAction(QIcon(":/icons/bitcoin"), tr("&Unify Twitter"), this);
-    aboutAction->setStatusTip(tr("Open Unify Twitter Account"));
-    aboutAction->setMenuRole(QAction::AboutRole);
     aboutQtAction = new QAction(QIcon(":/trolltech/qmessagebox/images/qtlogo-64.png"), tr("About &Qt"), this);
     aboutQtAction->setStatusTip(tr("Show information about Qt"));
     aboutQtAction->setMenuRole(QAction::AboutQtRole);
