@@ -219,3 +219,8 @@ void OverviewPage::showOutOfSyncWarning(bool fShow)
     ui->labelWalletStatus->setVisible(fShow);
     ui->labelTransactionsStatus->setVisible(fShow);
 }
+
+void OverviewPage::on_pushButton_clicked()
+{
+    QString link = "http://www.google.com";
+    }
