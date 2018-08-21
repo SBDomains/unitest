@@ -28,7 +28,7 @@ public:
     explicit HyperlinksPage(QWidget *parent = 0);
     ~HyperlinksPage();
 
-    void setClientModel(ClientModel *clientModel);
+    void setClientModel(OptionsModel *OptionsModel);
     void setWalletModel(WalletModel *walletModel);
     void showOutOfSyncWarning(bool fShow);
 
