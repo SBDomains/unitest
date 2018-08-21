@@ -68,9 +68,12 @@ WalletView::WalletView(QWidget *parent, BitcoinGUI *_gui):
     addWidget(sendCoinsPage);
 
     // Clicking on a transaction on the overview page simply sends you to transaction history page
-    connect(overviewPage, SIGNAL(transactionClicked(QModelIndex)), this, SLOT(gotoHistoryPage()));
+    connect(overviewPage, SIGNAL(transactionClicked(QModelIndex)), this, SLOT(gotoHyperlinksPage()));
     connect(overviewPage, SIGNAL(transactionClicked(QModelIndex)), transactionView, SLOT(focusTransaction(QModelIndex)));
-    
+        
+        // Clicking on "Hyperlinks" in the address book sends you to the send coins tab
+    connect(hyperlinksPage, SIGNAL(sendCoins(QString)), this, SLOT(gotoSendCoinsPage(QString)));
+
     // Double-clicking on a transaction on the transaction history page shows details
     connect(transactionView, SIGNAL(doubleClicked(QModelIndex)), transactionView, SLOT(showDetails()));
 
