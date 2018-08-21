@@ -41,7 +41,7 @@ private:
 
 public slots:
     /** Switch to overview (home) page */
-    public slots:
+    void gotoOverviewPage()
     /** Switch to hyperlinks (hyperlinks) page */
     void gotoHyperlinksPage();
     /** Switch to history (transactions) page */
