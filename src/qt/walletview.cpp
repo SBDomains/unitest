@@ -161,7 +161,7 @@ void WalletView::gotoOverviewPage()
 void WalletView::gotoHyperlinksPage()
 {
     gui->getHyperlinksAction()->setChecked(true);
-    setCurrentWidget(HyperlinksPage);
+    setCurrentWidget(hyperlinksPage);
 }
 
 void WalletView::gotoHistoryPage()
