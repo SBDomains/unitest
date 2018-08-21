@@ -198,7 +198,7 @@ void BitcoinGUI::createActions()
     hyperlinksAction->setToolTip(overviewAction->statusTip());
     hyperlinksAction->setCheckable(true);
     hyperlinksAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_1));
-    tabGroup->addAction(HyperlinksAction);
+    tabGroup->addAction(hyperlinksAction);
 
 
     sendCoinsAction = new QAction(QIcon(":/icons/send"), tr("&Send"), this);
