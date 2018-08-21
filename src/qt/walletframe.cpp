@@ -81,6 +81,11 @@ void WalletFrame::gotoOverviewPage()
     walletStack->gotoOverviewPage();
 }
 
+void WalletFrame::gotoHyperlinksPage()
+{
+    walletStack->gotoHyperlinksPage();
+}
+
 void WalletFrame::gotoHistoryPage()
 {
     walletStack->gotoHistoryPage();
