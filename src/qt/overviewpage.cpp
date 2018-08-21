@@ -16,8 +16,6 @@
 
 #include <QAbstractItemDelegate>
 #include <QPainter>
-#include <qdesktopservices.h>
-#include <qurl.h>
 
 #define DECORATION_SIZE 64
 #define NUM_ITEMS 3
@@ -221,9 +219,3 @@ void OverviewPage::showOutOfSyncWarning(bool fShow)
     ui->labelWalletStatus->setVisible(fShow);
     ui->labelTransactionsStatus->setVisible(fShow);
 }
-
-void OverviewPage::on_pushButton_clicked()
-{
-    QString link = "http://www.google.com";
-    QDesktopServices::openUrl(QUrl(link));
-    }
