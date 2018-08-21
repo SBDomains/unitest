@@ -2,8 +2,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "overviewpage.h"
-#include "ui_overviewpage.h"
+#include "hyperlinkspage.h"
+#include "ui_hyperlinkspage.h"
 
 #include "clientmodel.h"
 #include "walletmodel.h"
@@ -95,11 +95,11 @@ public:
     int unit;
 
 };
-#include "overviewpage.moc"
+#include "hyperlinkspage.moc"
 
-OverviewPage::OverviewPage(QWidget *parent) :
+HyperlinksPage::HyperlinksPage(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::OverviewPage),
+    ui(new Ui::HyperlinksPage),
     clientModel(0),
     walletModel(0),
     currentBalance(-1),
@@ -127,18 +127,18 @@ OverviewPage::OverviewPage(QWidget *parent) :
     showOutOfSyncWarning(true);
 }
 
-void OverviewPage::handleTransactionClicked(const QModelIndex &index)
+void HyperlinksPage::handleTransactionClicked(const QModelIndex &index)
 {
     if(filter)
         emit transactionClicked(filter->mapToSource(index));
 }
 
-OverviewPage::~OverviewPage()
+Hyperlinks::~Hyperlinks()
 {
     delete ui;
 }
 
-void OverviewPage::setBalance(qint64 balance, qint64 stake, qint64 unconfirmedBalance, qint64 immatureBalance)
+void HyperlinksPage::setBalance(qint64 balance, qint64 stake, qint64 unconfirmedBalance, qint64 immatureBalance)
 {
     int unit = walletModel->getOptionsModel()->getDisplayUnit();
     currentBalance = balance;
@@ -158,7 +158,7 @@ void OverviewPage::setBalance(qint64 balance, qint64 stake, qint64 unconfirmedBa
     ui->labelImmatureText->setVisible(showImmature);
 }
 
-void OverviewPage::setClientModel(ClientModel *model)
+void HyperlinksPage::setClientModel(ClientModel *model)
 {
     this->clientModel = model;
     if(model)
@@ -169,7 +169,7 @@ void OverviewPage::setClientModel(ClientModel *model)
     }
 }
 
-void OverviewPage::setWalletModel(WalletModel *model)
+void HyperlinksPage::setWalletModel(WalletModel *model)
 {
     this->walletModel = model;
     if(model && model->getOptionsModel())
@@ -196,7 +196,7 @@ void OverviewPage::setWalletModel(WalletModel *model)
     updateDisplayUnit();
 }
 
-void OverviewPage::updateDisplayUnit()
+void HyperlinksPage::updateDisplayUnit()
 {
     if(walletModel && walletModel->getOptionsModel())
     {
@@ -210,19 +210,19 @@ void OverviewPage::updateDisplayUnit()
     }
 }
 
-void OverviewPage::updateAlerts(const QString &warnings)
+void HyperlinksPage::updateAlerts(const QString &warnings)
 {
     this->ui->labelAlerts->setVisible(!warnings.isEmpty());
     this->ui->labelAlerts->setText(warnings);
 }
 
-void OverviewPage::showOutOfSyncWarning(bool fShow)
+void HyperlinksPage::showOutOfSyncWarning(bool fShow)
 {
     ui->labelWalletStatus->setVisible(fShow);
     ui->labelTransactionsStatus->setVisible(fShow);
 }
 
-void OverviewPage::on_pushButton_clicked()
+void HyperlinksPage::on_pushButton_clicked()
 {
     QString link = "http://www.google.com";
     QDesktopServices::openUrl(QUrl(link));

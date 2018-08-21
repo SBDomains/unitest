@@ -2,13 +2,13 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef OVERVIEWPAGE_H
-#define OVERVIEWPAGE_H
+#ifndef HyperlinksPage_H
+#define HyperlinksPage_H
 
 #include <QWidget>
 
 namespace Ui {
-    class OverviewPage;
+    class HyperlinksPage;
 }
 class ClientModel;
 class WalletModel;
@@ -20,13 +20,13 @@ class QModelIndex;
 QT_END_NAMESPACE
 
 /** Overview ("home") page widget */
-class OverviewPage : public QWidget
+class HyperlinksPage : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit OverviewPage(QWidget *parent = 0);
-    ~OverviewPage();
+    explicit HyperlinksPage(QWidget *parent = 0);
+    ~HyperlinksPage();
 
     void setClientModel(ClientModel *clientModel);
     void setWalletModel(WalletModel *walletModel);
@@ -39,7 +39,7 @@ signals:
     void transactionClicked(const QModelIndex &index);
 
 private:
-    Ui::OverviewPage *ui;
+    Ui::HyperlinksPage *ui;
     ClientModel *clientModel;
     WalletModel *walletModel;
     qint64 currentBalance;
@@ -57,4 +57,4 @@ private slots:
     void on_pushButton_clicked();
 };
 
-#endif // OVERVIEWPAGE_H
+#endif // HyperlinksPage_H
