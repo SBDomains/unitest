@@ -192,6 +192,14 @@ void BitcoinGUI::createActions()
     overviewAction->setCheckable(true);
     overviewAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_1));
     tabGroup->addAction(overviewAction);
+    
+    hyperlinksAction = new QAction(QIcon(":/icons/Forum"), tr("&Hyperlinks"), this);
+    hyperlinksAction->setStatusTip(tr("Unify Links"));
+    hyperlinksAction->setToolTip(overviewAction->statusTip());
+    hyperlinksAction->setCheckable(true);
+    hyperlinksAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_1));
+    tabGroup->addAction(HyperlinksAction);
+
 
     sendCoinsAction = new QAction(QIcon(":/icons/send"), tr("&Send"), this);
     sendCoinsAction->setStatusTip(tr("Send coins to a Unify address"));
@@ -223,6 +231,8 @@ void BitcoinGUI::createActions()
 
     connect(overviewAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(overviewAction, SIGNAL(triggered()), this, SLOT(gotoOverviewPage()));
+    connect(hyperlinksAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
+    connect(hyperlinksAction, SIGNAL(triggered()), this, SLOT(gotoHyperlinksPage()));
     connect(sendCoinsAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(sendCoinsAction, SIGNAL(triggered()), this, SLOT(gotoSendCoinsPage()));
     connect(receiveCoinsAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
@@ -238,6 +248,9 @@ void BitcoinGUI::createActions()
     quitAction->setMenuRole(QAction::QuitRole);
     aboutAction = new QAction(QIcon(":/icons/bitcoin"), tr("&About Unify"), this);
     aboutAction->setStatusTip(tr("Show information about Unify"));
+    aboutAction->setMenuRole(QAction::AboutRole);
+    aboutAction = new QAction(QIcon(":/icons/bitcoin"), tr("&Unify Twitter"), this);
+    aboutAction->setStatusTip(tr("Open Unify Twitter Account"));
     aboutAction->setMenuRole(QAction::AboutRole);
     aboutQtAction = new QAction(QIcon(":/trolltech/qmessagebox/images/qtlogo-64.png"), tr("About &Qt"), this);
     aboutQtAction->setStatusTip(tr("Show information about Qt"));
@@ -319,6 +332,7 @@ void BitcoinGUI::createToolBars()
     QToolBar *toolbar = addToolBar(tr("Tabs toolbar"));
     toolbar->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     toolbar->addAction(overviewAction);
+    toolbar->addAction(hyperlinksAction);
     toolbar->addAction(sendCoinsAction);
     toolbar->addAction(receiveCoinsAction);
     toolbar->addAction(historyAction);
@@ -390,6 +404,7 @@ void BitcoinGUI::removeAllWallets()
 void BitcoinGUI::setWalletActionsEnabled(bool enabled)
 {
     overviewAction->setEnabled(enabled);
+    hyperlinksAction->setEnabled(enabled);
     sendCoinsAction->setEnabled(enabled);
     receiveCoinsAction->setEnabled(enabled);
     historyAction->setEnabled(enabled);
@@ -499,6 +514,11 @@ void BitcoinGUI::aboutClicked()
 void BitcoinGUI::gotoOverviewPage()
 {
     if (walletFrame) walletFrame->gotoOverviewPage();
+}
+
+void BitcoinGUI::gotoHyperlinksPage()
+{
+    if (walletFrame) walletFrame->gotoHyperlinksPage();
 }
 
 void BitcoinGUI::gotoHistoryPage()
