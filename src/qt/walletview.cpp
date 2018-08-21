@@ -13,7 +13,7 @@
 #include "optionsmodel.h"
 #include "transactionview.h"
 #include "overviewpage.h"
-#include "hyperlinkspage.h"
+#include "hyperlinks.h"
 #include "askpassphrasedialog.h"
 #include "ui_interface.h"
 
