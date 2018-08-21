@@ -193,11 +193,11 @@ void BitcoinGUI::createActions()
     overviewAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_1));
     tabGroup->addAction(overviewAction);
     
-    hyperlinksAction = new QAction(QIcon(":/icons/Forum"), tr("&Hyperlinks"), this);
+    hyperlinksAction = new QAction(QIcon(":/icons/overview"), tr("&Hyperlinks"), this);
     hyperlinksAction->setStatusTip(tr("Unify Links"));
-    hyperlinksAction->setToolTip(overviewAction->statusTip());
+    hyperlinksAction->setToolTip(hyperlinksAction->statusTip());
     hyperlinksAction->setCheckable(true);
-    hyperlinksAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_1));
+    hyperlinksAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_6));
     tabGroup->addAction(hyperlinksAction);
 
 
