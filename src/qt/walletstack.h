@@ -18,7 +18,6 @@ class WalletModel;
 class WalletView;
 class TransactionView;
 class OverviewPage;
-class HyperlinksPage;
 class AddressBookPage;
 class SendCoinsDialog;
 class SignVerifyMessageDialog;
@@ -71,8 +70,6 @@ public slots:
 
     /** Switch to overview (home) page */
     void gotoOverviewPage();
-    /** Switch to overview (home) page */
-    void gotoHyperlinksPage();
     /** Switch to history (transactions) page */
     void gotoHistoryPage();
     /** Switch to address book page */
