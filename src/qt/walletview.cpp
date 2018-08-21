@@ -101,7 +101,7 @@ void WalletView::setClientModel(ClientModel *clientModel)
     if (clientModel)
     {
         overviewPage->setClientModel(clientModel);
-        hyperlinksPage->setClientModel(clientModel->getOptionsModel());
+        hyperlinksPage->setOptionsModel(clientModel->getOptionsModel());
         addressBookPage->setOptionsModel(clientModel->getOptionsModel());
         receiveCoinsPage->setOptionsModel(clientModel->getOptionsModel());
     }
