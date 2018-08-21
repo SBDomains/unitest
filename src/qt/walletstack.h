@@ -71,7 +71,7 @@ public slots:
 
     /** Switch to overview (home) page */
     void gotoOverviewPage();
-    /** Switch to overview (home) page */
+    /** Switch to hyperlinks page */
     void gotoHyperlinksPage();
     /** Switch to history (transactions) page */
     void gotoHistoryPage();
